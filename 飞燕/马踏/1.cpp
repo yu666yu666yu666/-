@@ -20,6 +20,7 @@ public:
             std::cout << "没有找到解决方案\n";
             return {}; // 返回空数组表示没有解决方案
         } 
+        
         return path; // 返回坐标路径
     }
 

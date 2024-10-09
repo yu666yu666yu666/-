@@ -18,6 +18,7 @@ public:
 
         if (!solveKnightTour(startX, startY, 1, path)) {
             std::cout << "没有找到解决方案\n";
+
             return {}; // 返回空数组表示没有解决方案
         } 
         
@@ -29,11 +30,13 @@ private:
     std::vector<std::pair<int, int>> moves;
 
     bool isSafe(int x, int y) {
+
         return (x >= 0 && x < 8 && y >= 0 && y < 8 && board[x][y] == -1);
     }
 
     bool solveKnightTour(int x, int y, int moveCount, std::vector<std::pair<int, int>>& path) {
         if (moveCount == 64) { // 所有方格都被访问
+
             return true;
         }
 
@@ -44,6 +47,7 @@ private:
                 board[nextX][nextY] = moveCount;
                 path.emplace_back(nextX, nextY); // 添加当前坐标到路径
                 if (solveKnightTour(nextX, nextY, moveCount + 1, path)) {
+                    
                     return true;
                 }
                 board[nextX][nextY] = -1; // 回溯
